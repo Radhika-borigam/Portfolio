@@ -1,21 +1,38 @@
 "use client";
+
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 const Wizard2 = React.memo(function Wizard(props) {
-  const { nodes, materials } = useGLTF(
-    "/models/wizard-transformed.glb",
-    undefined,
-    (error) => console.error("Error loading Wizard model:", error)
-  );
+  let nodes, materials;
+
+  try {
+    // Attempt to load the GLTF model
+    ({ nodes, materials } = useGLTF(
+      "/models/wizard-transformed.glb",
+      undefined,
+      (error) => console.error("Error loading Wizard model:", error)
+    ));
+  } catch (error) {
+    // Log error and render fallback
+    console.error("Failed to load GLTF model:", error);
+    return (
+      <mesh>
+        <boxGeometry />
+        <meshStandardMaterial color="red" />
+      </mesh>
+    );
+  }
 
   const modelRef = useRef();
 
   useFrame((state) => {
     const time = state.clock.elapsedTime;
-    modelRef.current.position.y = -1.5 + Math.sin(time) * 0.15; // Vertical bounce
-    modelRef.current.rotation.y += 0.007; // Smooth rotation
+    // Vertical bouncing animation
+    modelRef.current.position.y = -1.5 + Math.sin(time) * 0.15;
+    // Smooth rotation animation
+    modelRef.current.rotation.y += 0.007;
   });
 
   return (
