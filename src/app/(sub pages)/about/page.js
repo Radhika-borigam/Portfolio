@@ -1,6 +1,5 @@
 import Image from "next/image";
 import RenderModel from "@/components/RenderModel";
-// import HatModel from "@/components/models/HatModel";
 import AboutDetails from "@/components/about";
 import dynamic from "next/dynamic";
 
@@ -14,7 +13,8 @@ export const metadata = {
 };
 
 export default function Home() {
-const bg = "../../../../public/background/about-background.png";
+  const bg = "/background/about-background.png";
+
   return (
     <>
       <Image
