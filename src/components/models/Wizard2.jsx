@@ -44,6 +44,7 @@ const Wizard2 = React.memo(function Wizard(props) {
       scale={[0.06, 0.06, 0.06]}
       rotation={[0.25, 0, 0]}
     >
+      {/* Wizard meshes */}
       <mesh
         castShadow
         receiveShadow
@@ -229,4 +230,6 @@ const Wizard2 = React.memo(function Wizard(props) {
 });
 
 export default Wizard2;
+
+// Preload the GLTF model
 useGLTF.preload("/models/wizard-transformed.glb");
