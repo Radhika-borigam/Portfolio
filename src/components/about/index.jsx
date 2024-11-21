@@ -4,7 +4,7 @@ import ItemLayout from "./ItemLayout";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTypewriter } from "react-simple-typewriter";
-
+import Image from 'next/image'
 // Framer Motion Variants for the Paragraph
 const textAnimation = {
   hidden: { opacity: 0, x: 200 }, // Start off-screen to the right
@@ -140,14 +140,18 @@ const AboutDetails = () => {
           </div>
         </ItemLayout>
 
-        <ItemLayout className={"col-span-full md:col-span-8 !p-0"}>
-          <img
-            className="w-full h-auto"
-            src="https://skillicons.dev/icons?i=appwrite,bootstrap,css,docker,figma,firebase,git,github,graphql,html,js,jquery,kubernetes,linux,mongodb,mysql,nextjs,nodejs,npm,postgres,react,redux,sass,tailwind,threejs,vite,vscode,yarn"
-            alt="Skill Icons"
-            loading="lazy"
-          />
-        </ItemLayout>
+<ItemLayout className={"col-span-full md:col-span-8 !p-0"}>
+  <Image
+    className="w-full h-auto"
+    src="https://skillicons.dev/icons?i=appwrite,bootstrap,css,docker,figma,firebase,git,github,graphql,html,js,jquery,kubernetes,linux,mongodb,mysql,nextjs,nodejs,npm,postgres,react,redux,sass,tailwind,threejs,vite,vscode,yarn"
+    alt="Skill Icons"
+    layout="responsive"
+    width={800} 
+    height={400}
+    priority={false}
+  />
+</ItemLayout>
+
 
         <ItemLayout className={"col-span-full"}>
           <h3 className="text-center font-semibold text-xl sm:text-2xl  text-yellow-500">
