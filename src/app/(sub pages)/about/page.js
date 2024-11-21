@@ -1,5 +1,4 @@
 import Image from "next/image";
-import bg from "../../../../public/background/about-background.png";
 import RenderModel from "@/components/RenderModel";
 // import HatModel from "@/components/models/HatModel";
 import AboutDetails from "@/components/about";
@@ -15,6 +14,7 @@ export const metadata = {
 };
 
 export default function Home() {
+const bg = "../../../../public/background/about-background.png";
   return (
     <>
       <Image
