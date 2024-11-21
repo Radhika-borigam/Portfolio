@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import bg from "../../../../public/background/contact-background.png";
 import Form from "@/components/contact/Form";
 import { useTypewriter } from "react-simple-typewriter";
 
@@ -17,7 +16,7 @@ export default function Contact() {
   return (
     <>
       <Image
-        src={bg}
+        src="/background/contact-background.png" // Reference image directly from the public folder
         alt="Next.js Portfolio website's contact page background image"
         priority
         sizes="100vw"
