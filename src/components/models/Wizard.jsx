@@ -1,19 +1,21 @@
 "use client";
+
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 const Wizard = React.memo(function Wizard(props) {
-  // Use React.memo for performance optimization
-  const { nodes, materials } = useGLTF("/models/wizard-transformed.glb");
-
   const modelRef = useRef();
 
-  useFrame((state) => {
-    modelRef.current.position.y =
-      -1.5 + Math.sin(state.clock.elapsedTime) * 0.15;
-  });
+  const { nodes, materials } = useGLTF(
+    "/models/wizard-transformed.glb",
+    undefined,
+    (error) => console.error("Failed to load model:", error)
+  );
 
+  useFrame((state) => {
+    modelRef.current.position.y = -1.5 + Math.sin(state.clock.elapsedTime) * 0.15;
+  });
   return (
     <group
       {...props}
